@@ -1,0 +1,16 @@
+{
+  "name": "kodie-doacoes-estoque",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MVP de doações, estoque e entregas para o Desafio 3 — Tecnologia para o Impacto Social.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node scripts/seed.js",
+    "test": "node --test --test-reporter=spec"
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}
