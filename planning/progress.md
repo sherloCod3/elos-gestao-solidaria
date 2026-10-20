@@ -70,7 +70,7 @@ Resultado: **25 testes aprovados**, sendo 15 de regras de negócio e 10 de rotas
 
 - Aplicação funcional e testada.
 - Banco local `data/kodie.sqlite` resetado para o seed limpo: 4 recursos, 2 doadores, 3 famílias, 2 doações, 2 entregas e 1 ajuste.
-- Servidor de demonstração em execução em `http://127.0.0.1:3000`; `/health` respondeu `{"ok":true,"service":"kodie-mvp","users":2}`.
+- Servidor de demonstração em execução em `http://127.0.0.1:3000`; `/health` respondeu `{"ok":true,"service":"elos-mvp","users":2}`.
 - Documentação, plano, achados e progresso atualizados.
 
 ### Próximo passo

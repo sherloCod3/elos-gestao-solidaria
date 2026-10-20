@@ -579,7 +579,7 @@ Esses dados exigiriam medição real e autorização. O projeto apresentará ape
 - `node --test --test-reporter=spec` — 25 testes aprovados (15 de regras de negócio e 10 de rotas HTTP).
 - `node scripts/seed.js` — criação dos dados fictícios de demonstração.
 - Teste de interface no navegador: criação e validação da doação #3 pelo formulário, com redirecionamento para o detalhe.
-- `GET /health` — resposta `{"ok":true,"service":"kodie-mvp","users":2}`.
+- `GET /health` — resposta `{"ok":true,"service":"elos-mvp","users":2}`.
 - O ambiente não permitiu captura de tela por falta de desktop visível; a árvore de acessibilidade e o HTML renderizado foram verificados.
 
 ### 12.5 Roteiro de demonstração (5 a 7 minutos)

@@ -46,7 +46,7 @@ curl http://127.0.0.1:3000/health
 Resultado do `/health`:
 
 ```json
-{"ok":true,"service":"kodie-mvp","users":2}
+{"ok":true,"service":"elos-mvp","users":2}
 ```
 
 ---

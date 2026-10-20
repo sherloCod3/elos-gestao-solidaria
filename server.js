@@ -993,7 +993,7 @@ const routes = [
     pattern: /^\/health$/,
     handler: (ctx) => {
       const row = ctx.db.prepare('SELECT 1 AS ok').get();
-      sendJson(ctx.res, 200, { ok: row.ok === 1, service: 'kodie-mvp', users: ctx.users.length });
+      sendJson(ctx.res, 200, { ok: row.ok === 1, service: 'elos-mvp', users: ctx.users.length });
     },
   },
 ];
