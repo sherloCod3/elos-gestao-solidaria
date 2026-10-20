@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Elos — Gestão Solidária</title>
+  <meta name="description" content="Sistema de gestão solidária para doações, estoque e entregas. Projeto do Desafio 3 — Tecnologia para o Impacto Social.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f5b4e'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./" aria-label="Elos — início">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span class="brand-copy">
+          <strong>Elos</strong>
+          <small>Gestão solidária</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a href="#problema">Problema</a>
+        <a href="#fluxo">Fluxo</a>
+        <a href="#arquitetura">Arquitetura</a>
+        <a href="#executar">Executar</a>
+        <a class="nav-github" href="https://github.com/sherloCod3/elos-gestao-solidaria" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Desafio 3 — Tecnologia para o Impacto Social</p>
+          <h1>Gestão solidária de <span>doações, estoque e entregas</span></h1>
+          <p class="lead">
+            O <strong>Elos</strong> conecta doadores, recursos e famílias em um fluxo rastreável:
+            cada doação validada entra no estoque, cada entrega confirmada gera uma saída e cada
+            movimento fica registrado no histórico.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/sherloCod3/elos-gestao-solidaria" target="_blank" rel="noreferrer">Ver código no GitHub</a>
+            <a class="button button-ghost" href="#executar">Como executar</a>
+          </div>
+          <ul class="badges" aria-label="Destaques do projeto">
+            <li>Node.js</li>
+            <li>SQLite nativo</li>
+            <li>25 testes</li>
+            <li>Sem dependências externas</li>
+          </ul>
+        </div>
+
+        <div class="hero-preview" aria-label="Prévia ilustrativa da interface do Elos">
+          <div class="preview-window">
+            <div class="preview-bar">
+              <span class="preview-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="preview-url">127.0.0.1:3000/dashboard</span>
+            </div>
+            <div class="preview-app">
+              <aside class="preview-sidebar">
+                <div class="preview-brand">
+                  <span class="preview-mark">E</span>
+                  <span><strong>Elos</strong><small>Gestão solidária</small></span>
+                </div>
+                <div class="preview-nav is-active">Dashboard</div>
+                <div class="preview-nav">Recursos</div>
+                <div class="preview-nav">Doadores</div>
+                <div class="preview-nav">Famílias</div>
+                <div class="preview-nav">Doações</div>
+                <div class="preview-nav">Entregas</div>
+                <div class="preview-nav">Estoque</div>
+              </aside>
+              <div class="preview-main">
+                <div class="preview-head">
+                  <div>
+                    <span class="preview-eyebrow">Visão geral</span>
+                    <h2>Dashboard</h2>
+                  </div>
+                  <span class="preview-pill">Coordenação</span>
+                </div>
+                <div class="preview-metrics">
+                  <div class="preview-metric">
+                    <small>Doações pendentes</small>
+                    <strong>1</strong>
+                  </div>
+                  <div class="preview-metric is-warn">
+                    <small>Estoque baixo</small>
+                    <strong>1</strong>
+                  </div>
+                  <div class="preview-metric is-ok">
+                    <small>Entregas pendentes</small>
+                    <strong>1</strong>
+                  </div>
+                </div>
+                <div class="preview-panels">
+                  <div class="preview-panel">
+                    <span class="preview-panel-title">Atenção necessária</span>
+                    <div class="preview-line"><span class="dot dot-warn"></span> Feijão 1 kg abaixo do mínimo</div>
+                    <div class="preview-line"><span class="dot dot-ok"></span> Doação aguardando validação</div>
+                  </div>
+                  <div class="preview-panel">
+                    <span class="preview-panel-title">Saldo por recurso</span>
+                    <div class="preview-line"><span>Arroz 5 kg</span><strong>18</strong></div>
+                    <div class="preview-line"><span>Feijão 1 kg</span><strong>5</strong></div>
+                    <div class="preview-line"><span>Cobertor</span><strong>8</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="preview-caption">Prévia ilustrativa da interface. Os dados são fictícios.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problema">
+      <div class="wrap section-grid">
+        <div>
+          <p class="eyebrow">O problema</p>
+          <h2>Doação sem rastreabilidade vira estoque sem confiança.</h2>
+        </div>
+        <div class="section-copy">
+          <p>
+            Iniciativas sociais costumam controlar doações em planilhas e mensagens. Quando o volume
+            cresce, fica difícil saber o que entrou, o que já foi entregue e qual saldo está realmente
+            disponível.
+          </p>
+          <p>
+            O Elos foi desenhado para tornar esse fluxo explícito: o saldo não é digitado, ele é
+            derivado dos movimentos. Validação, entrega, cancelamento e ajuste passam por regras
+            verificáveis e deixam histórico.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="fluxo">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Fluxo ponta a ponta</p>
+          <h2>Da doação à entrega, com saldo auditável.</h2>
+          <p>O caminho principal da v1 foi implementado e testado de ponta a ponta.</p>
+        </div>
+        <ol class="flow">
+          <li>
+            <span class="flow-number">01</span>
+            <h3>Cadastrar recurso</h3>
+            <p>Nome, tipo, unidade, categoria e estoque mínimo.</p>
+          </li>
+          <li>
+            <span class="flow-number">02</span>
+            <h3>Registrar doação</h3>
+            <p>Doador, data, responsável e um ou mais itens.</p>
+          </li>
+          <li>
+            <span class="flow-number">03</span>
+            <h3>Validar doação</h3>
+            <p>O status muda para disponível e o estoque recebe a entrada.</p>
+          </li>
+          <li>
+            <span class="flow-number">04</span>
+            <h3>Registrar entrega</h3>
+            <p>Família, itens e conferência de saldo antes da confirmação.</p>
+          </li>
+          <li>
+            <span class="flow-number">05</span>
+            <h3>Confirmar entrega</h3>
+            <p>A saída é registrada e o saldo é atualizado na mesma transação.</p>
+          </li>
+          <li>
+            <span class="flow-number">06</span>
+            <h3>Auditar histórico</h3>
+            <p>Cada evento guarda ação, data e responsável.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="recursos">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">O que está pronto</p>
+          <h2>Uma v1 enxuta, mas completa no que promete.</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">↔</span>
+            <h3>Ledger auditável</h3>
+            <p>O saldo é calculado a partir dos movimentos. Não existe campo de saldo editável.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">✓</span>
+            <h3>Workflow com regras</h3>
+            <p>Validação, entrega, cancelamento e ajuste respeitam permissões e invariantes.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">◎</span>
+            <h3>Privacidade por padrão</h3>
+            <p>Famílias são identificadas por código. O seed usa apenas dados fictícios.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">▦</span>
+            <h3>Operação multi-item</h3>
+            <p>Uma doação ou entrega pode conter vários recursos e quantidades.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">◐</span>
+            <h3>Perfis de demonstração</h3>
+            <p>Coordenação e voluntariado têm permissões diferentes, validadas no servidor.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">#</span>
+            <h3>Testes reais</h3>
+            <p>25 testes automatizados cobrem domínio, persistência, HTTP e segurança básica.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="arquitetura">
+      <div class="wrap architecture-grid">
+        <div>
+          <p class="eyebrow">Arquitetura</p>
+          <h2>Simples de rodar, difícil de quebrar.</h2>
+          <p class="section-copy">
+            A aplicação usa apenas recursos nativos do Node.js. Não há build de frontend, banco
+            externo ou dependência instalada. A interface é renderizada no servidor e o banco SQLite
+            é criado automaticamente.
+          </p>
+          <div class="stack-list">
+            <span>Node.js 22.5+</span>
+            <span>node:sqlite</span>
+            <span>node:http</span>
+            <span>node:test</span>
+            <span>HTML + CSS + JS</span>
+          </div>
+        </div>
+        <div class="architecture-card">
+          <div class="arch-row">
+            <span class="arch-label">Interface</span>
+            <span>HTML renderizado no servidor</span>
+          </div>
+          <div class="arch-row">
+            <span class="arch-label">Regras</span>
+            <span>serviços de domínio + validação</span>
+          </div>
+          <div class="arch-row">
+            <span class="arch-label">Saldo</span>
+            <span>ledger de movimentos</span>
+          </div>
+          <div class="arch-row">
+            <span class="arch-label">Persistência</span>
+            <span>SQLite com transações</span>
+          </div>
+          <div class="arch-row">
+            <span class="arch-label">Qualidade</span>
+            <span>25 testes automatizados</span>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="notice">
+          <strong>Importante:</strong> o sistema completo é uma aplicação Node.js. O GitHub Pages
+          publica esta vitrine estática, mas não executa o backend. Para usar o sistema, rode
+          <code>node server.js</code> localmente ou publique em um serviço que execute Node.js.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="validacao">
+      <div class="wrap section-grid">
+        <div>
+          <p class="eyebrow">Validação</p>
+          <h2>O que foi testado de verdade.</h2>
+        </div>
+        <div class="validation-list">
+          <div class="validation-item"><strong>25</strong><span>testes aprovados</span></div>
+          <div class="validation-item"><strong>15</strong><span>testes de domínio</span></div>
+          <div class="validation-item"><strong>10</strong><span>testes HTTP</span></div>
+          <div class="validation-item"><strong>0</strong><span>falhas na última execução</span></div>
+        </div>
+      </div>
+      <div class="wrap">
+        <ul class="check-list">
+          <li>Bloqueio de entrega acima do saldo disponível.</li>
+          <li>Cancelamentos com movimentos compensatórios, sem apagar histórico.</li>
+          <li>Bloqueio de cancelamento de doação já distribuída.</li>
+          <li>Código de família único e validação de data/quantidade.</li>
+          <li>Persistência após fechar e reabrir o banco.</li>
+          <li>Permissões de coordenação versus voluntariado.</li>
+          <li>Cabeçalhos CSP, <code>nosniff</code> e proteção contra framing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="executar">
+      <div class="wrap run-grid">
+        <div>
+          <p class="eyebrow">Executar localmente</p>
+          <h2>Três comandos e o sistema está no ar.</h2>
+          <p class="section-copy">
+            Requisito: Node.js 22.5 ou superior. Não é necessário instalar dependências.
+          </p>
+          <ol class="run-steps">
+            <li><span>1</span> Crie o banco de demonstração com dados fictícios.</li>
+            <li><span>2</span> Inicie o servidor e abra o endereço local.</li>
+            <li><span>3</span> Rode a suíte de testes quando quiser.</li>
+          </ol>
+        </div>
+        <pre class="code-block"><code><span class="code-comment"># banco de demonstração</span>
+node scripts/seed.js
+
+<span class="code-comment"># servidor em http://127.0.0.1:3000</span>
+node server.js
+
+<span class="code-comment"># validação automatizada</span>
+node --test</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="documentacao">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Documentação</p>
+          <h2>Decisões registradas, não escondidas.</h2>
+          <p>O projeto documenta problema, escopo, arquitetura, validação e limitações.</p>
+        </div>
+        <div class="doc-links">
+          <a href="https://github.com/sherloCod3/elos-gestao-solidaria/blob/main/README.md" target="_blank" rel="noreferrer">
+            <strong>README</strong>
+            <span>Como rodar, demonstrar e limitações</span>
+          </a>
+          <a href="https://github.com/sherloCod3/elos-gestao-solidaria/blob/main/docs/01-problema-e-escopo.md" target="_blank" rel="noreferrer">
+            <strong>Problema e escopo</strong>
+            <span>Requisitos, telas, modelo e critérios</span>
+          </a>
+          <a href="https://github.com/sherloCod3/elos-gestao-solidaria/blob/main/docs/02-ferramentas-e-arquitetura.md" target="_blank" rel="noreferrer">
+            <strong>Ferramentas e arquitetura</strong>
+            <span>Stack, decisões e riscos</span>
+          </a>
+          <a href="https://github.com/sherloCod3/elos-gestao-solidaria/blob/main/docs/03-validacao-e-evidencias.md" target="_blank" rel="noreferrer">
+            <strong>Validação e evidências</strong>
+            <span>Testes, resultados e pendências</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <div>
+          <strong>Elos</strong>
+          <p>Gestão solidária de doações, estoque e entregas.</p>
+        </div>
+      </div>
+      <p class="footer-meta">
+        MVP acadêmico — Desafio 3 KODIE ·
+        <a href="https://github.com/sherloCod3/elos-gestao-solidaria" target="_blank" rel="noreferrer">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
