@@ -69,10 +69,10 @@ Resultado: **25 testes aprovados**, sendo 15 de regras de negócio e 10 de rotas
 ### Estado atual
 
 - Aplicação funcional e testada.
-- Banco local `data/kodie.sqlite` com dados de seed e uma doação extra criada no teste de interface.
-- Servidor de desenvolvimento pode estar em execução em `http://127.0.0.1:3000`.
+- Banco local `data/kodie.sqlite` resetado para o seed limpo: 4 recursos, 2 doadores, 3 famílias, 2 doações, 2 entregas e 1 ajuste.
+- Servidor de demonstração em execução em `http://127.0.0.1:3000`; `/health` respondeu `{"ok":true,"service":"kodie-mvp","users":2}`.
 - Documentação, plano, achados e progresso atualizados.
 
 ### Próximo passo
 
-Preparar a Fase 5: revisar a documentação, capturar evidências visuais e montar a apresentação de 5–7 minutos. Antes da apresentação, resetar o banco para o seed limpo, se desejado.
+Preparar a Fase 5: revisar a documentação, capturar evidências visuais e montar a apresentação de 5–7 minutos. O banco já está no seed limpo para a demonstração.
