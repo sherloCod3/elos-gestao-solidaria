@@ -2,6 +2,9 @@
 
 MVP do **Desafio 3 — Tecnologia para o Impacto Social**, construído para demonstrar uma operação de doações com controle de estoque e rastreabilidade de entregas.
 
+> **Vitrine online:** [sherlocod3.github.io/elos-gestao-solidaria](https://sherlocod3.github.io/elos-gestao-solidaria/)  
+> **Código-fonte:** [github.com/sherloCod3/elos-gestao-solidaria](https://github.com/sherloCod3/elos-gestao-solidaria)
+
 O projeto usa **Node.js + SQLite nativo** e uma interface web renderizada no servidor com **HTML e CSS próprios**. Não há dependências externas de frontend ou backend.
 
 > **Dados fictícios.** Todos os nomes, doadores, famílias e movimentos do seed são inventados. Não use dados pessoais reais.
