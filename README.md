@@ -1,4 +1,4 @@
-# KODIE — Doações, Estoque e Entregas
+# Elos — Gestão Solidária
 
 MVP do **Desafio 3 — Tecnologia para o Impacto Social**, construído para demonstrar uma operação de doações com controle de estoque e rastreabilidade de entregas.
 

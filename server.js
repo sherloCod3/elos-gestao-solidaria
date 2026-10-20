@@ -7,6 +7,7 @@ import { closeDatabase, openDatabase, transaction } from './db.js';
 import { DomainError, ValidationFailure } from './lib/errors.js';
 import { currentPath, isSafeRedirect, parseCookies, readForm, redirect, sendHtml, sendJson, setCookie } from './lib/http.js';
 import { todayIso } from './lib/date.js';
+import { APP_NAME } from './lib/constants.js';
 import {
   findFamily,
   findDonor,
@@ -115,7 +116,7 @@ function flashFor(url) {
   return null;
 }
 
-function renderPage(ctx, { status = 200, title = 'KODIE', active = '', pageTitle = '', pageSubtitle = '', eyebrow = '', actions = '', content = '' }) {
+function renderPage(ctx, { status = 200, title = APP_NAME, active = '', pageTitle = '', pageSubtitle = '', eyebrow = '', actions = '', content = '' }) {
   const html = renderLayout({
     title,
     active,
@@ -1150,7 +1151,7 @@ if (isMainModule()) {
   const host = process.env.HOST || '127.0.0.1';
   const server = http.createServer(handler);
   server.listen(port, host, () => {
-    console.log(`KODIE MVP em http://${host}:${port}`);
+    console.log(`${APP_NAME} MVP em http://${host}:${port}`);
   });
   const shutdown = () => {
     server.close(() => {

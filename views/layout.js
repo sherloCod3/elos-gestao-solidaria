@@ -1,3 +1,4 @@
+import { APP_NAME, APP_TAGLINE } from '../lib/constants.js';
 import { escapeHtml } from '../lib/text.js';
 
 const NAV_GROUPS = [
@@ -73,7 +74,7 @@ function renderProfile(currentUser, users, currentPath) {
 }
 
 export function renderLayout({
-  title = 'KODIE',
+  title = APP_NAME,
   active = '',
   currentUser,
   users = [],
@@ -91,18 +92,18 @@ export function renderLayout({
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>${escapeHtml(title)} · KODIE</title>
+  <title>${escapeHtml(title)} · ${escapeHtml(APP_NAME)}</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="/dashboard" aria-label="KODIE — início">
-        <span class="brand-mark" aria-hidden="true">K</span>
+      <a class="brand" href="/dashboard" aria-label="${escapeHtml(APP_NAME)} — início">
+        <span class="brand-mark" aria-hidden="true">${escapeHtml(APP_NAME.charAt(0))}</span>
         <span class="brand-text">
-          <strong>KODIE</strong>
-          <small>Doações &amp; Estoque</small>
+          <strong>${escapeHtml(APP_NAME)}</strong>
+          <small>${escapeHtml(APP_TAGLINE)}</small>
         </span>
       </a>
       <nav class="nav" aria-label="Navegação principal">${renderNav(active)}</nav>
